@@ -1,0 +1,256 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<partial name="_LoginPartial" />
+
+<!-- Home Page Layout -->
+<div class="home-page">
+
+    <!-- Welcome Section -->
+    <section class="welcome-section">
+        <h1> Gift Of Givers  Website</h1>
+        <p>Report Disasters, Donate  and Volunteer...</p>
+        <a href="@Url.Action("ReportDisaster","Home")" class="cta-button">Start Reporting</a>
+    </section>
+
+    <!-- Promotions Section -->
+    <section class="promotions-section">
+        <h2>Disaster Donations</h2>
+        <div class="promotion-banner">
+            <div class="promo-content">
+                <h3>Wild Fires</h3>
+                <p>Volunteer for wild Fire Victims</p>
+                <a href="/shop-page" class="promo-button">Donate</a>
+            </div>
+            <img src="~/dis1.jpg"  class="promo-image" style="width=300px;height=300px"/>
+        </div>
+    </section>
+
+    <!-- Product Categories (Modern Cards) -->
+    <section class="product-categories">
+        <h2>Disasters by  Category</h2>
+        <div class="category-grid">
+            <div class="category-item">
+                <img src="~/dis5.jpg" style="width=300px;height=300px" />
+                <h3>Fires</h3>
+                <p>Support wild fire victims.</p>
+                <a href="/shop/mugs" class="category-button">See Wild Fires</a>
+            </div>
+            <div class="category-item">
+                <img src="~/dis4.jpg"  style="width=300px;height=300px" />
+                <h3>Hurricanes</h3>
+                <p>Choose a keychain to keep your keys close.</p>
+                <a href="/shop/keychains" class="category-button">See Hurricanes</a>
+            </div>
+            <div class="category-item">
+                <img src="~/dis3.jpg"  style="width=300px;height=300px" />
+                <h3>Floods</h3>
+                <p>Be There for those affected by floods</p>
+                <a href="/shop/phonecovers" class="category-button">See Floods</a>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+
+
+<!-- Modernized Home Page CSS Styling -->
+<style>
+    /* Global Styling */
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f5f9;
+    }
+
+    .home-page {
+        padding: 20px;
+    }
+
+    h1, h2 {
+        font-weight: bold;
+        color: black;
+        text-align: center;
+    }
+
+    p {
+        color: #4b0082; /* Purple */
+        font-size: 1.1rem;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    /* Welcome Section */
+    .welcome-section {
+        text-align: center;
+        padding: 40px;
+        background: linear-gradient(135deg, #ff007f, #ff6600); /* Dark Pink to Orange */
+        color: white;
+        border-radius: 10px;
+        margin-bottom: 40px;
+    }
+
+    .welcome-section .cta-button {
+        margin-top: 20px;
+        background-color: #ff007f;
+        color: white;
+        padding: 15px 30px;
+        border-radius: 50px;
+        font-size: 1.2rem;
+        transition: background-color 0.3s;
+    }
+
+    .welcome-section .cta-button:hover {
+        background-color: #ff66b2;
+    }
+
+    /* Promotions Section */
+    .promotions-section {
+        background-color: #f9f4fc; /* Light Purple */
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 40px;
+    }
+
+    .promotion-banner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .promo-content {
+        max-width: 60%;
+    }
+
+    .promo-image {
+        max-width: 35%;
+        border-radius: 10px;
+    }
+
+    .promo-button {
+        background-color: #ff6600; /* Orange */
+        color: white;
+        padding: 10px 20px;
+        border-radius: 25px;
+        font-size: 1.1rem;
+        transition: background-color 0.3s;
+    }
+
+    .promo-button:hover {
+        background-color: #ff9933;
+    }
+
+    /* Product Categories Section */
+    .product-categories {
+        margin-bottom: 40px;
+    }
+
+    .category-grid {
+        display: flex;
+        justify-content: space-around;
+        gap: 20px;
+    }
+
+    .category-item {
+        background-color: white;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+    }
+
+    .category-item img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin-bottom: 15px;
+    }
+
+    .category-item:hover {
+        transform: translateY(-10px);
+    }
+
+    .category-button {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: #ff007f; /* Dark Pink */
+        color: white;
+        border-radius: 25px;
+        font-size: 1rem;
+        transition: background-color 0.3s;
+    }
+
+    .category-button:hover {
+        background-color: transparent ;
+    }
+
+    /* Featured Products Section */
+    .featured-products-carousel {
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+        padding: 10px 0;
+    }
+
+    .featured-item {
+        background-color: white;
+        border-radius: 10px;
+        padding: 15px;
+        text-align: center;
+        min-width: 250px;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+    }
+
+    .featured-item:hover {
+        transform: translateY(-10px);
+    }
+
+    .button {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: #800080; /* Purple */
+        color: white;
+        border-radius: 25px;
+        font-size: 1rem;
+        transition: background-color 0.3s;
+    }
+
+    .button:hover {
+        background-color: #a64ca6; /* Lighter Purple */
+    }
+    /* Footer Styles */
+    .footer {
+        background-color: #f8f8f8;
+        padding: 20px;
+        text-align: center;
+        margin-top: 30px;
+        border-top: 1px solid #ccc;
+    }
+
+    .footer p {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 10px;
+    }
+
+        .footer p {
+            text-decoration: none;
+            font-weight: bold;
+            color: black;
+           font-size: 0.9rem;
+    }
+
+            .footer p:hover {
+                text-decoration: underline;
+            }
+
+</style>

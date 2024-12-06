@@ -1,0 +1,78 @@
+﻿@page
+@model GiftOfGivers1.Models.Disaster
+@{
+
+    if (TempData["id"] != null || TempData["id"] as string != "" ) {
+        var id = TempData["id"] as string;
+        var res = await DisasterService.GetDisasterById(int.Parse(id!));
+    }
+}
+
+
+@if (ViewData["id"] != null) {
+
+
+    <div class="container p-3 my-3 border">
+        <h1> Report Disaster</h1>
+        <span>
+            <form method="get" asp-action="ViewAllDisasters">
+                <button class="btn-outline-secondary">
+                    All Disasters
+                </button>
+
+            </form>
+
+        </span>
+       
+      
+
+        <div class="row">
+            <div class="col-sm-6">
+                <hr />
+                <form method="post" asp-action="SaveDisaster">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group">
+                        <label asp-for="DisasterName" class="control-label"></label>
+                        <input asp-for="DisasterName" class="form-control" />
+                        <span asp-validation-for="DisasterName" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Location" class="control-label"></label>
+                        <input asp-for="Location" class="form-control" />
+                        <span asp-validation-for="Location" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="DisasterCategory" class="control-label"></label>
+                        <input asp-for="DisasterCategory" class="form-control" />
+                        <span asp-validation-for="DisasterCategory" class="text-danger"></span>
+                    </div>
+
+
+                    <div class="form-group" style="padding-top:8px;">
+                        <button class="btn btn-primary">Submit</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+    @section Scripts {
+    @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
+
+
+    
+}
+
+
+
+@section Scripts {
+    //Scripts.Render("~/bundles/jqueryval")
+}

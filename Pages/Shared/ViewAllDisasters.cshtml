@@ -1,0 +1,62 @@
+﻿@page
+@using GiftOfGivers1.Utils
+@model GiftOfGivers1.Models.Disaster
+@{
+   // var disasters = ViewData["disasters"] as List<Disaster>;
+
+    var res = await DisasterService.GetAllDisasters();
+}
+
+<table class="table">
+    <tr>
+        <th>
+           Name
+        </th>
+        <th>
+            DisasterCategory
+        </th>
+        <th>
+            Location
+        </th>
+        <th></th>
+    </tr>
+
+
+    @if (res != null) {
+        foreach (var item in res) {
+            <tr>
+                <td>
+                   @item.DisasterName
+                </td>
+                <td>
+                    @item.DisasterCategory
+                </td>
+                <td>
+                    @item.Location
+                </td>
+                <td>
+                   
+                    @{
+                        NavUtils.ClickedId = item.DisasterId;
+                         
+                    }
+                   
+                    <form>
+                        @Html.Hidden("id", item.DisasterId)
+                        <a href="@Url.Action("DisasterDetails","Home")">Details</a>
+                       
+                    </form>
+                    
+                       
+                  
+               
+                </td>
+            </tr>
+        }
+    }
+    else {
+        
+    }
+</table>
+
+
